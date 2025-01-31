@@ -1,24 +1,36 @@
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
-        <li class="breadcrumb-item"><a routerLink="/material">Material</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Input</li>
-    </ol>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+    <li class="breadcrumb-item"><a routerLink="/material">Material</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Input</li>
+  </ol>
 </nav>
 <h1>Input</h1>
 <div class="contenedor">
-    <mat-form-field>
-    <input matInput type="number" [(ngModel)]="numero1" placeholder="Ingrese un número"/>
-</mat-form-field>
-<mat-form-field>
-    <input matInput type="number" [(ngModel)]="numero2" placeholder="Ingrese otro número"/>
-</mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      type="number"
+      [(ngModel)]="numero1"
+      placeholder="Ingrese un número"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      type="number"
+      [(ngModel)]="numero2"
+      placeholder="Ingrese otro número"
+    />
+  </mat-form-field>
 
-<mat-slide-toggle [(ngModel)]="opcion1">Sumar</mat-slide-toggle>
-<mat-slide-toggle [(ngModel)]="opcion2">Restar</mat-slide-toggle>
-<mat-slide-toggle [(ngModel)]="opcion3">Multiplicar</mat-slide-toggle>
-<mat-slide-toggle [(ngModel)]="opcion4">Dividir</mat-slide-toggle>
-<button mat-raised-button color="primary" (click)="calcular()">Calcular</button>
-<hr>
-<p>{{resultado}}</p>
+  <mat-slide-toggle [(ngModel)]="opcion1">Sumar</mat-slide-toggle>
+  <mat-slide-toggle [(ngModel)]="opcion2">Restar</mat-slide-toggle>
+  <mat-slide-toggle [(ngModel)]="opcion3">Multiplicar</mat-slide-toggle>
+  <mat-slide-toggle [(ngModel)]="opcion4">Dividir</mat-slide-toggle>
+  <button mat-raised-button color="primary" (click)="calcular()">
+    Calcular
+  </button>
+  <hr />
+  <p>{{ resultado }}</p>
 </div>

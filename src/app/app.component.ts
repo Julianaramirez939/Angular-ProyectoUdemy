@@ -21,38 +21,66 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //material
 
-import{MatButtonModule} from '@angular/material/button';
-import{MatIconModule} from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MaterialInputComponent } from './paginas/material-input/material-input.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MaterialTabsComponent } from './paginas/material-tabs/material-tabs.component';
-import { MatTabsModule} from '@angular/material/tabs';
-import { MatDialogModule} from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MaterialDialogComponent } from './paginas/material-dialog/material-dialog.component';
-import { MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MaterialCardComponent } from './paginas/material-card/material-card.component';
-import { MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { ModalComponent } from './paginas/modal/modal.component';
 import { MomentComponent } from './paginas/moment/moment.component';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, BasicosComponent, DataBindingComponent, CicloDeVidaComponent, ComunicacionComponent,
-    Comunicacion2Component, HomeComponent, Ruta2Component, FormulariosComponent, MaterialComponent, RouterModule
-  , Error404Component, CabeceroComponent, FooterComponent, FormsModule, ReactiveFormsModule, Formulario2Component,
-   ValidaSelectDirective, MaterialBotonesComponent, MatButtonModule, MatIconModule, MaterialInputComponent,
-  MatInputModule, MatSlideToggleModule, MaterialTabsComponent, MatTabsModule, MatDialogModule, MaterialDialogComponent,
-MatExpansionModule, MaterialCardComponent, MatCardModule, ModalComponent, MomentComponent],
-    //Para manejar routerLink, se debe importar RouterModule
+  imports: [
+    RouterOutlet,
+    BasicosComponent,
+    DataBindingComponent,
+    CicloDeVidaComponent,
+    ComunicacionComponent,
+    Comunicacion2Component,
+    HomeComponent,
+    Ruta2Component,
+    FormulariosComponent,
+    MaterialComponent,
+    RouterModule,
+    Error404Component,
+    CabeceroComponent,
+    FooterComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    Formulario2Component,
+    ValidaSelectDirective,
+    MaterialBotonesComponent,
+    MatButtonModule,
+    MatIconModule,
+    MaterialInputComponent,
+    MatInputModule,
+    MatSlideToggleModule,
+    MaterialTabsComponent,
+    MatTabsModule,
+    MatDialogModule,
+    MaterialDialogComponent,
+    MatExpansionModule,
+    MaterialCardComponent,
+    MatCardModule,
+    ModalComponent,
+    MomentComponent,
+  ],
+  //Para manejar routerLink, se debe importar RouterModule
   providers: [CookieService, HttpClient],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
-})  
+  styleUrl: './app.component.css',
+})
 export class AppComponent {
   title = 'proyecto';
 }

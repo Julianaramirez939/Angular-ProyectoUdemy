@@ -6,24 +6,20 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './localstorage.component.html',
-  styleUrl: './localstorage.component.css'
+  styleUrl: './localstorage.component.css',
 })
 export class LocalstorageComponent implements OnInit {
-
-constructor(){}
+  constructor() {}
 
   ngOnInit(): void {
     this.crearLocal();
   }
 
-  crearLocal(){
-
-    if (typeof(Storage)!=='undefined') {
-
-      localStorage.setItem("TamilaMiVariable", "123456");
-
-    }else{
-      console.log("no se puede");
+  crearLocal() {
+    if (typeof Storage !== 'undefined') {
+      localStorage.setItem('TamilaMiVariable', '123456');
+    } else {
+      console.log('no se puede');
     }
   }
 }

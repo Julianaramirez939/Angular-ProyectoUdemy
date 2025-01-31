@@ -7,15 +7,14 @@ import { CookieService } from 'ngx-cookie-service';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './cookie.component.html',
-  styleUrl: './cookie.component.css'
+  styleUrl: './cookie.component.css',
 })
 export class CookieComponent implements OnInit {
-
-constructor(private cookieService: CookieService){}
+  constructor(private cookieService: CookieService) {}
   ngOnInit(): void {
     this.crear();
   }
-  crear(){
+  crear() {
     this.cookieService.set('tamilaCookie', '4758villa', 1);
   }
 }

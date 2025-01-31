@@ -2,97 +2,142 @@
 
 <!-- Botón para abrir la ventana modal -->
 <p>
-    <button class="btn btn-danger" (click)="abrir()">Abrir</button>
+  <button class="btn btn-danger" (click)="abrir()">Abrir</button>
 </p>
 
 <!-- Plantilla del modal -->
 <ng-template #myModalConf let-modal>
-    <div class="modal-content">
-        <!-- Encabezado del modal -->
-        <div class="modal-header text-white bg-primary mb-3">
-            <h4 class="modal-title">{{modalTitle}}</h4>
-            <button 
-                type="button" 
-                class="close" 
-                data-dismiss="modal"
-                aria-label="Close" 
-                (click)="modal.close('Cerrado desde la ventana')">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-
-        <!-- Cuerpo del modal -->
-        <div class="modal-body">
-            <!--Formulario-->
-            <div class="row">
-                <form name="form" id="form" (submit)="enviar()" #formulario="ngForm">
-                    <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" name="nombre" class="form-control" [(ngModel)]="usuario.nombre" #nombre="ngModel" required="true" />
-                    <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class= "alert alert-danger">
-                        <div *ngIf="nombre.errors">
-                            El campo nombre es obligatorio
-                        </div>
-                    </div>
-        
-                </div>
-                <div class="form-group">
-                    <label for="correo">E-mail:</label>
-                    <input type="text" name="correo" class="form-control" [(ngModel)]="usuario.correo" #correo="ngModel" required="true" 
-                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"/>
-                    
-                    <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" class= "alert alert-danger">
-                        <div *ngIf="correo.errors">
-                            El campo E-mail es obligatorio
-                        </div>
-                        <div *ngIf="!correo.valid && correo.touched">
-                            El E-mail ingresado no es válido
-                        </div>
-                    </div>
-        
-                </div>
-                <div class="form-group">
-                    <label for="telefono">Telefono:</label>
-                    <input type="text" name="telefono" class="form-control" [(ngModel)]="usuario.telefono" #telefono="ngModel" required="true"/>
-                    <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class= "alert alert-danger">
-                        <div *ngIf="telefono.errors">
-                            El campo teléfono es obligatorio
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="direccion">Dirección:</label>
-                    <input type="text" name="direccion" class="form-control" [(ngModel)]="usuario.direccion" #direccion="ngModel" required="true" />
-                    <div *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)" class= "alert alert-danger">
-                        <div *ngIf="direccion.errors">
-                            El campo dirección es obligatorio
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="pais">País:</label>
-                    <select name="pais" class="form-control" [(ngModel)]="usuario.pais">
-                        <option *ngFor="let pais of paises" value="{{pais.nombre}}">{{pais.nombre}}</option>
-                    </select>
-                </div>
-                <br>
-                
-                <hr>
-                <input type="submit" value="Enviar" class="btn btn-success" [disabled]="!formulario.form.valid">
-                <hr>
-                </form>
-            </div>
-            <!--Fin formulario-->
-        </div>
-        <!-- Pie del modal -->
-        <div class="modal-footer">
-            <button 
-                type="button" 
-                class="btn btn-secondary" 
-                data-dismiss="modal" 
-                (click)="modal.close('No')">
-                Cerrar
-            </button>
-        </div>
+  <div class="modal-content">
+    <!-- Encabezado del modal -->
+    <div class="modal-header text-white bg-primary mb-3">
+      <h4 class="modal-title">{{ modalTitle }}</h4>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+        (click)="modal.close('Cerrado desde la ventana')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
+
+    <!-- Cuerpo del modal -->
+    <div class="modal-body">
+      <!--Formulario-->
+      <div class="row">
+        <form name="form" id="form" (submit)="enviar()" #formulario="ngForm">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input
+              type="text"
+              name="nombre"
+              class="form-control"
+              [(ngModel)]="usuario.nombre"
+              #nombre="ngModel"
+              required="true"
+            />
+            <div
+              *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="nombre.errors">El campo nombre es obligatorio</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="correo">E-mail:</label>
+            <input
+              type="text"
+              name="correo"
+              class="form-control"
+              [(ngModel)]="usuario.correo"
+              #correo="ngModel"
+              required="true"
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            />
+
+            <div
+              *ngIf="correo.invalid && (correo.dirty || correo.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="correo.errors">El campo E-mail es obligatorio</div>
+              <div *ngIf="!correo.valid && correo.touched">
+                El E-mail ingresado no es válido
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Telefono:</label>
+            <input
+              type="text"
+              name="telefono"
+              class="form-control"
+              [(ngModel)]="usuario.telefono"
+              #telefono="ngModel"
+              required="true"
+            />
+            <div
+              *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="telefono.errors">
+                El campo teléfono es obligatorio
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input
+              type="text"
+              name="direccion"
+              class="form-control"
+              [(ngModel)]="usuario.direccion"
+              #direccion="ngModel"
+              required="true"
+            />
+            <div
+              *ngIf="
+                direccion.invalid && (direccion.dirty || direccion.touched)
+              "
+              class="alert alert-danger"
+            >
+              <div *ngIf="direccion.errors">
+                El campo dirección es obligatorio
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="pais">País:</label>
+            <select name="pais" class="form-control" [(ngModel)]="usuario.pais">
+              <option *ngFor="let pais of paises" value="{{ pais.nombre }}">
+                {{ pais.nombre }}
+              </option>
+            </select>
+          </div>
+          <br />
+
+          <hr />
+          <input
+            type="submit"
+            value="Enviar"
+            class="btn btn-success"
+            [disabled]="!formulario.form.valid"
+          />
+          <hr />
+        </form>
+      </div>
+      <!--Fin formulario-->
+    </div>
+    <!-- Pie del modal -->
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-dismiss="modal"
+        (click)="modal.close('No')"
+      >
+        Cerrar
+      </button>
+    </div>
+  </div>
 </ng-template>

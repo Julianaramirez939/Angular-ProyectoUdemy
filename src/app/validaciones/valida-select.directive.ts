@@ -1,14 +1,17 @@
 import { Directive } from '@angular/core';
-import { AbstractControl, ValidationErrors, Validator, ValidatorFn } from '@angular/forms';
-
+import {
+  AbstractControl,
+  ValidationErrors,
+  Validator,
+  ValidatorFn,
+} from '@angular/forms';
 
 @Directive({
   selector: '[appValidaSelect]',
-  standalone: true
+  standalone: true,
 })
-export class ValidaSelectDirective implements Validator{
-
-  constructor() { }
+export class ValidaSelectDirective implements Validator {
+  constructor() {}
 
   validate(control: AbstractControl): ValidationErrors | null {
     return ValidaSelectDirectiveValidator(control);
@@ -16,11 +19,10 @@ export class ValidaSelectDirective implements Validator{
   registerOnValidatorChange?(fn: () => void): void {
     throw new Error('Method not implemented: ');
   }
-
 }
-export const ValidaSelectDirectiveValidator: ValidatorFn = (control: 
-AbstractControl):
-ValidationErrors | null =>{
+export const ValidaSelectDirectiveValidator: ValidatorFn = (
+  control: AbstractControl
+): ValidationErrors | null => {
   const pais = control.get('pais');
-  return pais && pais.value === null ? {ValidaSelectNull: true}: null;
+  return pais && pais.value === null ? { ValidaSelectNull: true } : null;
 };

@@ -1,7 +1,10 @@
 <!--Desde el primer componente (Comunicación), voy a llamar al segundo componente (Comunicación2)-->
 <h3>Comunicación entre componentes</h3>
 <app-comunicacion2 titulo="hola" subtitulo="sub titulo"></app-comunicacion2>
-<app-comunicacion2 [titulo]="texto1" [subtitulo]="texto2" (valordelhijo)="actualizarHijo($event)">
-
+<app-comunicacion2
+  [titulo]="texto1"
+  [subtitulo]="texto2"
+  (valordelhijo)="actualizarHijo($event)"
+>
 </app-comunicacion2>
-<p>hijo: {{hijo}}</p>
+<p>hijo: {{ hijo }}</p>

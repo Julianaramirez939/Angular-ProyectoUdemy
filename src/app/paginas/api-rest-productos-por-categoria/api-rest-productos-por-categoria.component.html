@@ -4,8 +4,10 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a routerLink="/api-rest">Api Rest</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="['/api/productos']" [queryParams]="{page: '1'}">Productos</a></li>
+
       <li class="breadcrumb-item active">
-        <a aria-current="page">Productos</a>
+        <a aria-current="page">Productos categoria</a>
       </li>
     </ol>
   </nav>

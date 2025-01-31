@@ -1,4 +1,3 @@
-export interface CategoriasRequest
-{
-    nombre: string,
+export interface CategoriasRequest {
+  nombre: string;
 }

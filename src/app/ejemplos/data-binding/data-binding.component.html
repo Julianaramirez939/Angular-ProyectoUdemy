@@ -1,20 +1,18 @@
 <h3>Data Binding</h3>
 <p>
-    Ejemplo botón
-    <br><br>
-    <button [disabled]="disable" (click)="cambiar();">Presionar</button> <!--Disabled, propiedad para que el botón quede desabilitado-->
-<!--disable, variable de tipo boolean para poder habilitar y deshabilitar el botón   -->
+  Ejemplo botón
+  <br /><br />
+  <button [disabled]="disable" (click)="cambiar()">Presionar</button>
+  <!--Disabled, propiedad para que el botón quede desabilitado-->
+  <!--disable, variable de tipo boolean para poder habilitar y deshabilitar el botón   -->
 </p>
-<div style="background-color: {{color}};">hola</div>
-<hr>
-<div [style]="'background-color:'+color+';'">hola</div>
-<hr>
-<p>{{texto}}</p>
+<div style="background-color: {{ color }};">hola</div>
+<hr />
+<div [style]="'background-color:' + color + ';'">hola</div>
+<hr />
+<p>{{ texto }}</p>
 <p [innerHTML]="texto"></p>
-<hr>
+<hr />
 <div>
-    <img [src]="'/assets/images/' + img" [width]="ancho" [height]="alto"/>
+  <img [src]="'/assets/images/' + img" [width]="ancho" [height]="alto" />
 </div>
-
-
-

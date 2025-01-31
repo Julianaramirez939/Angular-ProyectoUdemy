@@ -8,8 +8,6 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule, HttpClientModule, CommonModule],
   templateUrl: './api-rest.component.html',
-  styleUrl: './api-rest.component.css'
+  styleUrl: './api-rest.component.css',
 })
-export class ApiRestComponent {
-
-}
+export class ApiRestComponent {}

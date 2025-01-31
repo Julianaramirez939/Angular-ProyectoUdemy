@@ -6,17 +6,15 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './sesionstorage.component.html',
-  styleUrl: './sesionstorage.component.css'
+  styleUrl: './sesionstorage.component.css',
 })
-export class SesionstorageComponent implements OnInit{
-
-
-constructor(){}
+export class SesionstorageComponent implements OnInit {
+  constructor() {}
   ngOnInit(): void {
     this.crear();
   }
 
-  crear(){
+  crear() {
     sessionStorage.setItem('tamilaSesion', '1091202939');
   }
 }

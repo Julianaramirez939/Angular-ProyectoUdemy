@@ -7,33 +7,26 @@ import swal from 'sweetalert2';
   standalone: true,
   imports: [],
   templateUrl: './cookie2.component.html',
-  styleUrl: './cookie2.component.css'
+  styleUrl: './cookie2.component.css',
 })
-export class Cookie2Component implements OnInit{
-
-tamila: string;
-constructor(private cookieService: CookieService, private router: Router){}
+export class Cookie2Component implements OnInit {
+  tamila: string;
+  constructor(private cookieService: CookieService, private router: Router) {}
   ngOnInit(): void {
-    if(this.cookieService.check('tamilaCookie'))
-      {
-        this.tamila=this.cookieService.get('tamilaCookie');
-
-    }else{
+    if (this.cookieService.check('tamilaCookie')) {
+      this.tamila = this.cookieService.get('tamilaCookie');
+    } else {
       this.router.navigate(['/']);
-
     }
   }
 
-  borrar()
-  {
+  borrar() {
     this.cookieService.delete('tamilaCookie');
     swal.fire({
       icon: 'success',
       title: 'OK',
-      text: 'Se borró la cookie'
+      text: 'Se borró la cookie',
     });
     this.router.navigate(['/']);
   }
-  }
-
-
+}

@@ -11,9 +11,10 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, FormsModule, FormateaNumerosPipe, RouterModule],
   templateUrl: './api-rest-productos-por-categoria.component.html',
-  styleUrl: './api-rest-productos-por-categoria.component.css'
+  styleUrl: './api-rest-productos-por-categoria.component.css',
 })
 export class ApiRestProductosPorCategoriaComponent implements OnInit {
+  categoria: any;
   datos: Array<ProductosResponse>;
   total: any;
   por_pagina: any;
@@ -46,6 +47,5 @@ export class ApiRestProductosPorCategoriaComponent implements OnInit {
       },
     });
   }
-  eliminar(id: any){}
+  eliminar(id: any) {}
 }
-

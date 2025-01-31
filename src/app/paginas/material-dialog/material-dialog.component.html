@@ -1,10 +1,14 @@
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
-        <li class="breadcrumb-item"><a routerLink="/material">Material</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Dialog</li>
-    </ol>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+    <li class="breadcrumb-item"><a routerLink="/material">Material</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Dialog</li>
+  </ol>
 </nav>
 <h1>Dialog</h1>
-<button mat-raised-button color="primary" (click)="abrir('0ms','0ms')">Ejemplo 1</button>
-<button mat-raised-button color="danger" (click)="abrir('3000ms','1500ms')">Ejemplo 2</button>
+<button mat-raised-button color="primary" (click)="abrir('0ms', '0ms')">
+  Ejemplo 1
+</button>
+<button mat-raised-button color="danger" (click)="abrir('3000ms', '1500ms')">
+  Ejemplo 2
+</button>
