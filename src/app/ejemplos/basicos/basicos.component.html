@@ -1,0 +1,78 @@
+<h4>Interpolación</h4> <!-- Para acceder a un recurso que tengo en basicos.component.ts-->
+<ul>
+    <li>nombre: {{nombre}} <!--Se llama la variable nombre que está en basicos.component.ts--></li>
+    <li>email: {{correo}}</li>
+    <li>numero:{{numero}}</li>
+    <li>edad:{{edad}} años</li>
+    <li>fecha:{{fecha}}</li>
+    <li>HTML: <span [innerHTML]="html"></span></li>
+    <li>paises: {{paises}}</li> </ul>
+    <hr>
+    <h4>Condicionales</h4>
+    <p *ngIf="edad >= 18; else edadElse">Mayor de edad</p>
+    <ng-template #edadElse>
+      <p>No es mayor de edad</p>
+    </ng-template>
+    <hr>
+    <h4>Operador ternario</h4>
+    <p>{{(edad>=18) ? 'ternario si es mayor': 'ternario no es mayor'}}</p>
+    <hr>
+    <h4>Switch case</h4>
+    <div [ngSwitch]="numero">
+        <p *ngSwitchCase="12">Es 12</p>
+        <p *ngSwitchCase="13">Es 13</p>
+        <p *ngSwitchCase="14">Es 14</p>
+        <p *ngSwitchDefault>No es ninguna</p>
+    </div>
+    <hr>
+    <h4>ng-container</h4> <!--Es un contenedor, para ejecutar una validacion fuera del HTML-->
+    <ng-container *ngIf="edad>=18">
+        se cumple la condición
+    </ng-container>
+    <hr>
+    <h4>ngFor</h4>
+    <ul>
+        <li *ngFor="let item of [1,2,3,4,5,6,7,8,9]; let i=index">
+        {{i+1}} - numero: {{item}}
+        </li>
+</ul>
+<hr>
+<h4>Recorrer arreglo dinámico</h4>
+<ul>
+    <li *ngFor="let pais of paises; let i=index ; first as primero; last as ultima"> <!--El nombre de los arreglos en plural y la variable en singular-->
+        {{i+1}} - {{pais.nombre}}({{pais.dominio}}) <span *ngIf="primero">este es el primero Índice</span>
+        <span *ngIf="ultima">este es el último Índice</span>
+    </li>
+</ul>
+<hr>
+<h4>ng-template</h4> <!--Es un contenedor, lo mismo que el ngFor-->
+<ul>
+    <ng-template ngFor let-pais [ngForOf]="paises" let-i="index">
+        <li>{{i+1}} - {{pais.nombre}}({{pais.dominio}}) </li>
+</ng-template>
+</ul>
+<hr>
+<h4>odd y even</h4>
+<div *ngFor="let pais of paises; let i = index; let impar = odd; let par = even;"
+[ngClass]="{azul:par, verde:impar}">
+    <p>
+        {{i}} - {{pais.nombre}} ({{pais.dominio}})
+        <span *ngIf="impar">es impar</span> <!--Toma el índice 0 como par-->
+        <span *ngIf="par">es par</span>
+    </p>
+</div>
+<hr>
+<h4>Pipes</h4>
+<!--Pipe para mostrar un texto largo, solo una parte-->
+<p>{{texto | uppercase}}</p> <!--Poner todo el texto en mayuscula-->
+<p>{{texto | slice:0:100}}....</p> <!--Mostrar el texto desde el caracter 0 hasta el caracter 100-->
+<p>{{cantidad | currency:'USD':'$'}}</p> <!--el currency me formatea a dinero y se le pueden poner parametros o dejarse solo-->
+<p>{{fecha | date:'dd/MM/yyyy'}}</p> <!--Pipe para formatear la fecha, se puede poner solo o con parametros-->
+<ul>
+    <h4>Pipes personalizados</h4>
+    <p>{{fecha | formateaFecha}}</p>
+</ul>
+<hr>
+<ul>
+    <p>{{ cantidad |formateaNumeros}}</p>
+</ul>

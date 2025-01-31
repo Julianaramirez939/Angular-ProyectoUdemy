@@ -1,0 +1,42 @@
+<h1>Agregar categorías</h1>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/api-rest">Api Rest</a></li>
+        <li class="breadcrumb-item"><a routerLink="/api/categorias">Categorias</a></li>
+        <li class="breadcrumb-item active"><a aria-current="page">Editar categorias: {{datos.nombre}}</a></li>
+    </ol>
+</nav>
+<div class="row">
+    <div class="col-8">
+        <form [formGroup]="formulario" #formDir="ngForm">
+            <div [hidden]="formDir.submitted">
+
+                <div class="cross-validation"
+                [class.cross-validation-error]="formulario.invalid &&
+                 (formulario.touched || formulario.dirty)">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" class="form-control"
+                    formControlName="nombre"
+                    placeholder="Nombre"  required/>
+
+                    <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+                    class="alert alert-danger">
+
+                    <div *ngIf="nombre.errors?.['required']">
+                        El campo nombre es obligatorio.
+                    </div>
+                    <div *ngIf="nombre.errors?.['minlength']">
+                        El nombre debe tener al menos 4 caracteres.
+                    </div>
+                </div>
+                </div>
+            </div>
+            <hr>
+            <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid"
+            (click)="enviar()">Enviar</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-4">&nbsp;</div>
+</div>

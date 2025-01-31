@@ -1,0 +1,19 @@
+<h1>Hola mundo desde el componente principal</h1>
+<!--Enlaces con routerLink-->
+<ul>
+    <li>
+        <a routerLink="/">Home</a><!--No es recomendable poner routerLinkActive en Home, porque estaria marcado siempre--> 
+    </li>
+    <li>  
+        <a routerLink="/ruta-2/45/queso-azul" routerLinkActive="enlaces">Ruta 2</a><!--Clase enlaces css que está en styles.css-->
+    <!--Se le pasan los parametros de forma estatica (id y slug)-->
+    </li>  
+    <li>
+        <a routerLink="/formularios" routerLinkActive="enlaces">Formularios</a>
+    </li>  
+    <li>
+        <a routerLink="/material" routerLinkActive="enlaces">Material</a>
+    </li>  
+    
+</ul>
+<router-outlet></router-outlet> <!--Aquí toma las distintas rutas-->
