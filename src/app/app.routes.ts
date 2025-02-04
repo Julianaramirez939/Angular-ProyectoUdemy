@@ -30,6 +30,13 @@ import { ApiRestCategoriasAddComponent } from './paginas/api-rest-categorias-add
 import { ApiRestCategoriasEditComponent } from './paginas/api-rest-categorias-edit/api-rest-categorias-edit.component';
 import { ApiRestProductosComponent } from './paginas/api-rest-productos/api-rest-productos.component';
 import { ApiRestProductosPorCategoriaComponent } from './paginas/api-rest-productos-por-categoria/api-rest-productos-por-categoria.component';
+import { ApiRestProductosBuscadorComponent } from './paginas/api-rest-productos-buscador/api-rest-productos-buscador.component';
+import { ApiRestProductosAddComponent } from './paginas/api-rest-productos-add/api-rest-productos-add.component';
+import { ApiRestProductosEditComponent } from './paginas/api-rest-productos-edit/api-rest-productos-edit.component';
+import { ApiRestProductosFotosComponent } from './paginas/api-rest-productos-fotos/api-rest-productos-fotos.component';
+import { AccesoLoginComponent } from './paginas/acceso-login/acceso-login.component';
+import { AccesoRegistroComponent } from './paginas/acceso-registro/acceso-registro.component';
+import { AccesoRestringidoComponent } from './paginas/acceso-restringido/acceso-restringido.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent }, //Si no se pone nada, es la ruta principal del proyecto
@@ -70,6 +77,15 @@ export const routes: Routes = [
     path: 'api/productos-categoria/:slug',
     component: ApiRestProductosPorCategoriaComponent,
   },
+  { path: 'api/productos-buscar', component: ApiRestProductosBuscadorComponent },
+  { path: 'api/productos/add', component: ApiRestProductosAddComponent },
+  { path: 'api/productos/editar/:id', component: ApiRestProductosEditComponent},
+  { path: 'api/productos/fotos/:id', component: ApiRestProductosFotosComponent},
+
+  { path: 'login', component: AccesoLoginComponent},
+  { path: 'registro', component: AccesoRegistroComponent},
+  { path: 'restringido', component: AccesoRestringidoComponent},
+
 
   { path: '**', component: Error404Component }, //Cualquiera de esas paginas no encontradas, van a parar aquí y siempre debe estar de último de todos los path
 ];

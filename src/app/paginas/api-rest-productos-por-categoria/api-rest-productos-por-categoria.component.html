@@ -7,7 +7,7 @@
       <li class="breadcrumb-item"><a [routerLink]="['/api/productos']" [queryParams]="{page: '1'}">Productos</a></li>
 
       <li class="breadcrumb-item active">
-        <a aria-current="page">Productos categoria</a>
+        <a aria-current="page">Productos categoria: {{categoria.nombre}}</a>
       </li>
     </ol>
   </nav>
@@ -64,27 +64,27 @@
     <nav aria-label="Page navigation example">
       <ul class="pagination">
         <li class="page-item">
-          <a class="page-link" href="/api/productos?page=1">Primera</a>
+          <a class="page-link" href="/api/productos-categoria/{{slug}}?page=1">Primera</a>
         </li>
   
         <li *ngIf="page > 1" class="page-item">
-          <a class="page-link" href="/api/productos?page={{ page - 1 }}"
+          <a class="page-link" href="/api/productos-categoria/{{slug}}?page={{ page - 1 }}"
             >Anterior</a
           >
         </li>
         <ng-container *ngFor="let item of paginas; let i = index">
           <li *ngIf="i!=0"class="page-item">
-            <a class="page-link" href="/api/productos?page={{item}}">{{ item }}</a>
+            <a class="page-link" href="/api/productos-categoria/{{slug}}?page={{item}}">{{ item }}</a>
           </li>
         </ng-container>
         <li *ngIf="page < links" class="page-item">
-          <a class="page-link" href="/api/productos?page={{ page + 1 }}"
+          <a class="page-link" href="/api/productos-categoria/{{slug}}?page={{ page + 1 }}"
             >Siguiente</a
           >
         </li>
   
         <li class="page-item">
-          <a class="page-link" href="/api/productos?page={{ links }}">Última</a>
+          <a class="page-link" href="/api/productos-categoria/{{slug}}?page={{ links }}">Última</a>
         </li>
       </ul>
     </nav>

@@ -1,27 +1,25 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { FormateaNumerosPipe } from '../../utilidades/formatea-numeros.pipe';
 import { ProductosResponse } from '../../interfaces/productos_response';
 import { ApiRestService } from '../../servicios/api-rest.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormateaNumerosPipe } from '../../utilidades/formatea-numeros.pipe';
 
 @Component({
-  selector: 'app-api-rest-productos-por-categoria',
+  selector: 'app-api-rest-productos-buscador',
   standalone: true,
-  imports: [CommonModule, FormsModule, FormateaNumerosPipe, RouterModule],
-  templateUrl: './api-rest-productos-por-categoria.component.html',
-  styleUrl: './api-rest-productos-por-categoria.component.css',
+  imports: [RouterModule, CommonModule, FormateaNumerosPipe],
+  templateUrl: './api-rest-productos-buscador.component.html',
+  styleUrl: './api-rest-productos-buscador.component.css',
 })
-export class ApiRestProductosPorCategoriaComponent implements OnInit {
-  categoria: any = {};
+export class ApiRestProductosBuscadorComponent implements OnInit {
   datos: Array<ProductosResponse>;
   total: any;
   por_pagina: any;
   page = 1;
   links: number;
   paginas: Array<any> = [];
-  slug: string;
+  busqueda: string;
   constructor(
     private servicio: ApiRestService,
     private route: ActivatedRoute,
@@ -30,13 +28,11 @@ export class ApiRestProductosPorCategoriaComponent implements OnInit {
   ngOnInit(): void {
     let params: any = this.route.snapshot.queryParams;
     this.page = parseInt(params.page ? params.page : 1);
-    let params_get: any = this.route.snapshot.params;
-    this.slug = params_get.slug;
-    this.hacerPeticion(this.slug, this.page);
-    this.getCategoria(this.slug);
+    this.busqueda = params.search ? params.search : '';
+    this.hacerPeticion(this.page, this.busqueda);
   }
-  hacerPeticion(slug: any, pagina: any) {
-    this.servicio.getProductosCategoria(slug, pagina).subscribe({
+  hacerPeticion(pagina: any, busqueda: any) {
+    this.servicio.getProductosBuscar(pagina, busqueda).subscribe({
       next: (data) => {
         this.datos = data.datos;
         this.total = data.total;
@@ -51,15 +47,12 @@ export class ApiRestProductosPorCategoriaComponent implements OnInit {
       },
     });
   }
-  getCategoria(slug: any) {
-    this.servicio.getCategoriasPorSlug(slug).subscribe({
-      next: (data) => {
-        this.categoria = data;
-      },
-      error: (error) => {
-        console.error('Error', error);
-      },
-    });
-  }
   eliminar(id: any) {}
+}
+function ngOnInit() {
+  throw new Error('Function not implemented.');
+}
+
+function hacerPeticion(pagina: any, any: any) {
+  throw new Error('Function not implemented.');
 }

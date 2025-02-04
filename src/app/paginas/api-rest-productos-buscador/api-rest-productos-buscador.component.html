@@ -4,29 +4,15 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a routerLink="/api-rest">Api Rest</a></li>
+    <li class="breadcrumb-item">
+      <a routerLink="['/api/productos']" [queryParams]="{ page: '1' }"
+        >Productos</a>
+    </li>
     <li class="breadcrumb-item active">
-      <a aria-current="page">Productos</a>
+      <a aria-current="page">Resuultados para el término <strong>{{busqueda}}</strong></a>
     </li>
   </ol>
 </nav>
-<div class="row">
-  <div class="col-6"></div>
-  <div class="col-6"></div>
-  <div class="input-group">
-    <input
-      type="text"
-      class="form-control"
-      placeholder="Buscar..."
-      name="search"
-      [(ngModel)]="formulario_buscar.search"
-      #search="ngModel"
-    />
-    <span class="input-group-text" (click)="buscar()">
-      <i class="fas fa-search"></i>
-    </span>
-  </div>
-</div>
-<hr />
 <p>
   <a routerLink="/api/productos/add" class="btn btn-success"
     ><i class="fas fa-plus"></i>Crear</a
